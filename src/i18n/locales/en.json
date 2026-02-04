@@ -68,5 +68,57 @@
             "title": "13. Contact Us",
             "content": "If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us through:\n\n• App Support: Use the in-app support channels\n• Email: Contact information available on our website\n• App Store: Leave feedback through the Google Play Store\n\nWe are committed to addressing your privacy concerns promptly and transparently. Your privacy and trust are important to us."
         }
+    },
+    "childSafety": {
+        "title": "Child Safety & Abuse Enforcement",
+        "lastUpdated": "Last Updated: February 4, 2026",
+        "intro": {
+            "title": "Introduction",
+            "content": "Nearby Community is committed to providing a safe environment for all users. This Child Safety and Abuse Enforcement (CSAE) policy outlines our safety standards, contact information, and measures to protect users, especially minors, in compliance with Google Play's child safety standards policy for social and dating category apps."
+        },
+        "commitment": {
+            "title": "1. Our Commitment to Child Safety",
+            "content": "We are dedicated to:\n\n• Protecting minors from inappropriate content and interactions\n• Preventing child sexual abuse and exploitation (CSAE)\n• Maintaining a zero-tolerance policy for illegal content\n• Providing transparent safety standards and reporting mechanisms\n• Cooperating fully with law enforcement agencies\n• Continuously improving our safety measures and policies"
+        },
+        "ageRequirements": {
+            "title": "2. Age Requirements",
+            "content": "Nearby Community has the following age requirements:\n\n• Minimum Age: Users must be at least 13 years of age\n• Parental Consent: Users under 18 should have parental supervision\n• Age Verification: While we don't collect personal data, users are responsible for meeting age requirements\n• Teen Safety: We recommend parental guidance for all users under 18\n\nBy using this app, you confirm that you meet the minimum age requirement for your jurisdiction."
+        },
+        "safetyFeatures": {
+            "title": "3. Safety Features",
+            "content": "Our app includes built-in safety features:\n\n• Local-Only Communication: All communications are peer-to-peer without central servers\n• User Control: Users control who they connect with and what information they share\n• No Profile System: No public profiles or user directories that could be exploited\n• Ephemeral Connections: Connections are temporary and user-initiated\n• Encryption: All communications are encrypted end-to-end\n• No Location Tracking: We do not track or store user locations"
+        },
+        "contentModeration": {
+            "title": "4. Content Moderation",
+            "content": "Due to our peer-to-peer architecture:\n\n• Direct Communication: Messages are sent directly between devices without server intermediation\n• User Responsibility: Users are responsible for the content they share\n• Blocking Capability: Users can disconnect from any device at any time\n• No Content Storage: We do not store or have access to user communications\n• Community Standards: Users must comply with our Terms of Service and community guidelines\n\nWhile we cannot moderate real-time peer-to-peer communications, we provide tools for users to protect themselves."
+        },
+        "reporting": {
+            "title": "5. Reporting Mechanisms",
+            "content": "If you encounter inappropriate content, abuse, or safety concerns:\n\n• Immediate Action: Disconnect from the device immediately\n• Report to Us: Contact nearcomapp@gmail.com with details\n• Law Enforcement: Report illegal activity to local authorities\n• Emergency: Call emergency services (911, 112, etc.) for immediate threats\n• Documentation: Save any relevant information (device names, timestamps)\n\nWe take all reports seriously and will cooperate fully with law enforcement investigations."
+        },
+        "privacyProtection": {
+            "title": "6. Privacy Protection for Minors",
+            "content": "We protect user privacy, especially for minors:\n\n• No Personal Data Collection: We do not collect names, emails, phone numbers, or addresses\n• No Location Tracking: Location permissions are only used for Bluetooth functionality, not tracking\n• Local Storage Only: All data stays on the user's device\n• No Third-Party Sharing: We never share user data with third parties\n• COPPA Compliance: Our design inherently protects children's privacy\n• Parental Control: Parents can monitor app usage through device-level controls"
+        },
+        "prohibitedContent": {
+            "title": "7. Prohibited Content and Behavior",
+            "content": "The following are strictly prohibited:\n\n• Child Sexual Abuse Material (CSAM): Any content exploiting minors\n• Grooming: Attempts to build relationships with minors for exploitation\n• Harassment: Bullying, threats, or intimidation of any user\n• Illegal Content: Any content that violates local, national, or international laws\n• Hate Speech: Content promoting violence or hatred\n• Sexual Content: Explicit sexual content or solicitation\n• Impersonation: Pretending to be someone else\n\nViolations will result in immediate reporting to authorities and cooperation with investigations."
+        },
+        "parentalGuidance": {
+            "title": "8. Parental Guidance and Resources",
+            "content": "We recommend parents and guardians:\n\n• Supervise Usage: Monitor children's use of communication apps\n• Discuss Safety: Talk to children about online safety and appropriate behavior\n• Set Boundaries: Establish rules about who children can communicate with\n• Use Device Controls: Utilize parental control features on devices\n• Stay Informed: Review our privacy policy and safety guidelines\n• Report Concerns: Contact us immediately if you have safety concerns\n\nParental involvement is crucial for ensuring children's online safety."
+        },
+        "contact": {
+            "title": "9. Contact Information",
+            "content": "For child safety concerns, abuse reports, or questions about our safety policies:",
+            "email": "Safety Email",
+            "website": "Safety Website",
+            "responseTime": "Response Time",
+            "responseTimeValue": "Within 24-48 hours for safety reports"
+        },
+        "emergencyResources": {
+            "title": "10. Emergency Resources",
+            "content": "If you or someone you know is in immediate danger:\n\n• Emergency Services: Call 911 (US), 112 (EU), or your local emergency number\n• National Center for Missing & Exploited Children (NCMEC): CyberTipline.org or 1-800-843-5678\n• FBI Internet Crime Complaint Center: ic3.gov\n• INHOPE Hotline Network: inhope.org (international)\n• Local Law Enforcement: Contact your local police department\n\nFor non-emergency concerns, use our safety contact information above. We are committed to working with authorities to ensure user safety."
+        }
     }
 }

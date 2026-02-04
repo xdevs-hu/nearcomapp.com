@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import FeatureGraphic from '../components/FeatureGraphic.vue';
 import Privacy from '../views/Privacy.vue';
+import ChildSafety from '../views/ChildSafety.vue';
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         path: '/privacy',
         name: 'Privacy',
         component: Privacy
+    },
+    {
+        path: '/csae',
+        name: 'ChildSafety',
+        component: ChildSafety
     }
 ];
 

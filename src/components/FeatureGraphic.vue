@@ -9,6 +9,25 @@
                 <div v-html="svgContent" :key="svgKey"></div>
             </div>
         </div>
+
+        <div class="footer-links">
+            <router-link to="/privacy" class="footer-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ $t('privacyPolicy.title') }}
+            </router-link>
+            <span class="footer-separator">•</span>
+            <router-link to="/csae" class="footer-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ $t('childSafety.title') }}
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -152,10 +171,55 @@ export default {
     display: block;
 }
 
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(72, 184, 120, 0.1);
+}
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #48B878;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background: rgba(72, 184, 120, 0.1);
+    transform: translateY(-2px);
+}
+
+.footer-link svg {
+    flex-shrink: 0;
+}
+
+.footer-separator {
+    color: rgba(226, 232, 240, 0.3);
+    font-size: 14px;
+}
+
 @media (max-width: 768px) {
     .logo-container :deep(svg) {
         height: 100px;
         max-width: 500px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-separator {
+        display: none;
     }
 }
 
@@ -163,6 +227,11 @@ export default {
     .logo-container :deep(svg) {
         height: 80px;
         max-width: 400px;
+    }
+
+    .footer-link {
+        font-size: 13px;
+        padding: 6px 10px;
     }
 }
 </style>

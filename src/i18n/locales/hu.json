@@ -68,5 +68,57 @@
             "title": "13. Kapcsolatfelvétel",
             "content": "Ha kérdései, aggályai vagy kérései vannak ezzel az Adatvédelmi irányelvvel vagy adatvédelmi gyakorlatainkkal kapcsolatban, kérjük, lépjen kapcsolatba velünk:\n\n• Alkalmazás támogatás: Használja az alkalmazáson belüli támogatási csatornákat\n• E-mail: Kapcsolattartási információk elérhetők weboldalunkon\n• Alkalmazásbolt: Hagyjon visszajelzést a Google Play Áruházban\n\nElkötelezettek vagyunk adatvédelmi aggályainak gyors és átlátható kezelése iránt. Az Ön magánélete és bizalma fontos számunkra."
         }
+    },
+    "childSafety": {
+        "title": "Gyermekvédelem és visszaélések elleni fellépés",
+        "lastUpdated": "Utolsó frissítés: 2026. február 4.",
+        "intro": {
+            "title": "Bevezetés",
+            "content": "A Közeli Közösség elkötelezett amellett, hogy biztonságos környezetet biztosítson minden felhasználó számára. Ez a Gyermekvédelmi és visszaélések elleni fellépési (CSAE) irányelv vázolja biztonsági szabványainkat, kapcsolattartási információinkat és intézkedéseinket a felhasználók, különösen a kiskorúak védelmére, a Google Play gyermekvédelmi szabványokra vonatkozó irányelvének megfelelően a közösségi és társkereső kategóriájú alkalmazások számára."
+        },
+        "commitment": {
+            "title": "1. Elkötelezettségünk a gyermekvédelem iránt",
+            "content": "Elkötelezettek vagyunk:\n\n• A kiskorúak védelme a nem megfelelő tartalomtól és interakcióktól\n• A gyermekek szexuális bántalmazásának és kizsákmányolásának (CSAE) megelőzése\n• Zéró tolerancia politika fenntartása az illegális tartalommal szemben\n• Átlátható biztonsági szabványok és jelentési mechanizmusok biztosítása\n• Teljes körű együttműködés a bűnüldöző szervekkel\n• Biztonsági intézkedéseink és irányelveink folyamatos fejlesztése"
+        },
+        "ageRequirements": {
+            "title": "2. Korhatár követelmények",
+            "content": "A Közeli Közösség a következő korhatár követelményekkel rendelkezik:\n\n• Minimális életkor: A felhasználóknak legalább 13 évesnek kell lenniük\n• Szülői beleegyezés: A 18 év alatti felhasználóknak szülői felügyelettel kell rendelkezniük\n• Életkor ellenőrzés: Bár nem gyűjtünk személyes adatokat, a felhasználók felelősek a korhatár követelmények teljesítéséért\n• Tinédzserek biztonsága: Szülői útmutatást javasolunk minden 18 év alatti felhasználó számára\n\nAz alkalmazás használatával Ön megerősíti, hogy megfelel a joghatóságában érvényes minimális korhatárnak."
+        },
+        "safetyFeatures": {
+            "title": "3. Biztonsági funkciók",
+            "content": "Alkalmazásunk beépített biztonsági funkciókat tartalmaz:\n\n• Csak helyi kommunikáció: Minden kommunikáció peer-to-peer központi szerverek nélkül\n• Felhasználói kontroll: A felhasználók szabályozzák, hogy kivel kapcsolódnak és milyen információkat osztanak meg\n• Nincs profil rendszer: Nincsenek nyilvános profilok vagy felhasználói könyvtárak, amelyeket ki lehetne használni\n• Átmeneti kapcsolatok: A kapcsolatok átmenetiek és felhasználó által kezdeményezettek\n• Titkosítás: Minden kommunikáció végpontok között titkosított\n• Nincs helymeghatározás követés: Nem követjük nyomon és nem tároljuk a felhasználók tartózkodási helyét"
+        },
+        "contentModeration": {
+            "title": "4. Tartalom moderálás",
+            "content": "Peer-to-peer architektúránk miatt:\n\n• Közvetlen kommunikáció: Az üzenetek közvetlenül kerülnek elküldésre az eszközök között szerver közvetítés nélkül\n• Felhasználói felelősség: A felhasználók felelősek az általuk megosztott tartalomért\n• Blokkolási képesség: A felhasználók bármikor leválaszthatnak bármely eszközt\n• Nincs tartalom tárolás: Nem tároljuk és nem férünk hozzá a felhasználói kommunikációhoz\n• Közösségi szabványok: A felhasználóknak meg kell felelniük Szolgáltatási feltételeinknek és közösségi irányelveinknek\n\nBár nem tudjuk moderálni a valós idejű peer-to-peer kommunikációt, eszközöket biztosítunk a felhasználóknak önmaguk védelmére."
+        },
+        "reporting": {
+            "title": "5. Jelentési mechanizmusok",
+            "content": "Ha nem megfelelő tartalommal, visszaéléssel vagy biztonsági aggályokkal találkozik:\n\n• Azonnali intézkedés: Azonnal váljon le az eszközről\n• Jelentés nekünk: Lépjen kapcsolatba a nearcomapp@gmail.com címmel részletekkel\n• Bűnüldözés: Jelentse az illegális tevékenységet a helyi hatóságoknak\n• Vészhelyzet: Hívja a segélyhívó szolgálatokat (112 stb.) azonnali fenyegetések esetén\n• Dokumentáció: Mentse el a releváns információkat (eszköznevek, időbélyegek)\n\nKomolyan vesszük az összes jelentést és teljes mértékben együttműködünk a bűnüldöző vizsgálatokkal."
+        },
+        "privacyProtection": {
+            "title": "6. Adatvédelem a kiskorúak számára",
+            "content": "Védjük a felhasználók magánéletét, különösen a kiskorúakét:\n\n• Nincs személyes adatgyűjtés: Nem gyűjtünk neveket, e-maileket, telefonszámokat vagy címeket\n• Nincs helymeghatározás követés: A helymeghatározási engedélyek csak a Bluetooth funkcionalitáshoz használatosak, nem követéshez\n• Csak helyi tárolás: Minden adat a felhasználó eszközén marad\n• Nincs harmadik féllel való megosztás: Soha nem osztjuk meg a felhasználói adatokat harmadik felekkel\n• COPPA megfelelés: Tervezésünk eredendően védi a gyermekek magánéletét\n• Szülői kontroll: A szülők figyelemmel kísérhetik az alkalmazás használatát eszköz szintű vezérléseken keresztül"
+        },
+        "prohibitedContent": {
+            "title": "7. Tiltott tartalom és viselkedés",
+            "content": "A következők szigorúan tiltottak:\n\n• Gyermekek szexuális bántalmazásával kapcsolatos anyagok (CSAM): Bármilyen kiskorúakat kizsákmányoló tartalom\n• Grooming: Kísérletek kapcsolatok kiépítésére kiskorúakkal kizsákmányolás céljából\n• Zaklatás: Bármely felhasználó megfélemlítése, fenyegetése vagy zaklatása\n• Illegális tartalom: Bármilyen helyi, nemzeti vagy nemzetközi törvényeket sértő tartalom\n• Gyűlöletbeszéd: Erőszakot vagy gyűlöletet népszerűsítő tartalom\n• Szexuális tartalom: Explicit szexuális tartalom vagy kérés\n• Megszemélyesítés: Más személynek való kiadás\n\nA jogsértések azonnali jelentést eredményeznek a hatóságoknak és együttműködést a vizsgálatokkal."
+        },
+        "parentalGuidance": {
+            "title": "8. Szülői útmutatás és források",
+            "content": "Javasoljuk a szülőknek és gondviselőknek:\n\n• Felügyeljék a használatot: Figyeljék a gyermekek kommunikációs alkalmazások használatát\n• Beszélgessenek a biztonságról: Beszélgessenek a gyermekekkel az online biztonságról és megfelelő viselkedésről\n• Határokat szabjanak: Állítsanak fel szabályokat arról, hogy a gyermekek kivel kommunikálhatnak\n• Használják az eszköz vezérléseket: Használják a szülői felügyeleti funkciókat az eszközökön\n• Maradjanak tájékozottak: Tekintsék át adatvédelmi irányelvünket és biztonsági irányelveinket\n• Jelentsék az aggályokat: Azonnal lépjenek kapcsolatba velünk, ha biztonsági aggályaik vannak\n\nA szülői részvétel kulcsfontosságú a gyermekek online biztonságának biztosításához."
+        },
+        "contact": {
+            "title": "9. Kapcsolattartási információk",
+            "content": "Gyermekvédelmi aggályok, visszaélések jelentése vagy biztonsági irányelveinkkel kapcsolatos kérdések esetén:",
+            "email": "Biztonsági e-mail",
+            "website": "Biztonsági weboldal",
+            "responseTime": "Válaszidő",
+            "responseTimeValue": "24-48 órán belül biztonsági jelentések esetén"
+        },
+        "emergencyResources": {
+            "title": "10. Vészhelyzeti források",
+            "content": "Ha Ön vagy valaki, akit ismer, közvetlen veszélyben van:\n\n• Segélyhívó szolgálatok: Hívja a 112-t (EU) vagy a helyi segélyhívó számot\n• Nemzeti Eltűnt és Kizsákmányolt Gyermekek Központja (NCMEC): CyberTipline.org vagy 1-800-843-5678\n• FBI Internet Bűncselekmény Panasz Központ: ic3.gov\n• INHOPE Forródrát Hálózat: inhope.org (nemzetközi)\n• Helyi bűnüldözés: Lépjen kapcsolatba a helyi rendőrséggel\n\nNem sürgős aggályok esetén használja a fenti biztonsági kapcsolattartási információinkat. Elkötelezettek vagyunk a hatóságokkal való együttműködés mellett a felhasználók biztonságának biztosítása érdekében."
+        }
     }
 }
