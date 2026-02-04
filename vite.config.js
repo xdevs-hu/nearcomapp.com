@@ -4,6 +4,7 @@ import obfuscator from 'rollup-plugin-obfuscator';
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/', // Use '/' for custom domain or '/<repo-name>/' for github.io subdomain
   server: {
     port: 3000,
     open: true
