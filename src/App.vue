@@ -2,20 +2,18 @@
     <div id="app">
         <LanguageSwitcher />
         <div class="container fade-in">
-            <FeatureGraphic />
+            <router-view />
         </div>
     </div>
 </template>
 
 <script>
 import LanguageSwitcher from './components/LanguageSwitcher.vue';
-import FeatureGraphic from './components/FeatureGraphic.vue';
 
 export default {
     name: 'App',
     components: {
-        LanguageSwitcher,
-        FeatureGraphic
+        LanguageSwitcher
     }
 }
 </script>

@@ -8,5 +8,65 @@
     "feature2": "WiFi Direct és Bluetooth kapcsolat",
     "feature3": "Peer-to-peer üzenetküldés internet nélkül",
     "feature4": "Gyönyörű gradiens dizájn sima animációkkal",
-    "feature5": "Interaktív szélesség vezérlők a reszponzivitás teszteléséhez"
+    "feature5": "Interaktív szélesség vezérlők a reszponzivitás teszteléséhez",
+    "privacyPolicy": {
+        "title": "Adatvédelmi irányelvek",
+        "lastUpdated": "Utolsó frissítés: 2026. január 7.",
+        "intro": {
+            "title": "Bevezetés",
+            "content": "Ez az Adatvédelmi irányelv leírja, hogyan kezeli a Közeli Közösség (\"mi\", \"miénk\" vagy \"az alkalmazás\") az információkat, amikor mobilalkalmazásunkat használja. Elkötelezettek vagyunk magánélete védelme és adatkezelési gyakorlataink átláthatósága iránt. Ez az alkalmazás az adatvédelmet alapelvként szem előtt tartva készült - peer-to-peer alapon működünk, központi szerverek nélkül."
+        },
+        "dataCollection": {
+            "title": "1. Általunk gyűjtött információk",
+            "content": "A Közeli Közösség úgy lett tervezve, hogy minimalizálja az adatgyűjtést. Az alkalmazás a következő információkat gyűjti és dolgozza fel helyileg az eszközén:\n\n• Eszközazonosító: Egy ideiglenes, titkosított azonosító az eszközök felderítéséhez\n• Avatar név: A megjelenítendő név, amelyet a közeli felhasználókkal oszt meg\n• Csevegési üzenetek: Az aktív munkamenetek során küldött és fogadott üzenetek\n• Eszközinformációk: Alapvető eszközadatok a Bluetooth és Wi-Fi Direct kapcsolathoz\n\nFONTOS: Minden adat helyileg kerül feldolgozásra az eszközén. Nem gyűjtünk, tárolunk vagy továbbítunk személyes információkat külső szerverekre vagy harmadik feleknek."
+        },
+        "permissions": {
+            "title": "2. Szükséges engedélyek",
+            "content": "A peer-to-peer kapcsolat biztosításához az alkalmazás a következő engedélyeket igényli:\n\n• Bluetooth keresés, csatlakozás és hirdetés: Közeli eszközök felfedezéséhez és csatlakozásához Bluetooth Low Energy (BLE) használatával\n• Közeli Wi-Fi eszközök: Wi-Fi Direct kapcsolatok engedélyezéséhez gyorsabb adatátvitelhez (Android 13+)\n• Helymeghatározás (Android 13 és korábbi): Az Android operációs rendszer által megkövetelt a Bluetooth kereséshez régebbi verziókon. NEM követjük nyomon a tartózkodási helyét\n• Értesítések: Új üzenetek és kapcsolati események értesítéséhez\n\nEzeket az engedélyeket kizárólag peer-to-peer funkcionalitáshoz használjuk, és soha nem használjuk Önről adatok követésére, megfigyelésére vagy gyűjtésére."
+        },
+        "dataUsage": {
+            "title": "3. Hogyan használjuk az információkat",
+            "content": "Az alkalmazás által feldolgozott információkat kizárólag a következőkre használjuk:\n\n• Eszközfelderítés: Lehetővé teszi, hogy megtalálja és megtalálják a közeli eszközöket\n• Peer-to-peer kommunikáció: Közvetlen üzenetküldés elősegítése eszközök között\n• Kapcsolatkezelés: Stabil kapcsolatok fenntartása aktív munkamenetek során\n• Felhasználói élmény: A választott avatar név megjelenítése más felhasználók számára\n\nMinden feldolgozás helyileg történik az eszközén. Az üzenetek és kapcsolatok átmenetiek - csak aktív munkamenetek során léteznek, és nem kerülnek tartósan tárolásra vagy külső szerverekre továbbításra."
+        },
+        "dataStorage": {
+            "title": "4. Adattárolás és megőrzés",
+            "content": "• Csak helyi tárolás: Minden adat helyileg kerül tárolásra az eszközén titkosított adatbázisok használatával\n• Nincs felhőalapú tárolás: Nem töltjük fel és nem szinkronizáljuk adatait felhőszolgáltatásokra\n• Ideiglenes adatok: Az eszközfelderítési információk és aktív kapcsolatok átmenetiek és automatikusan törlődnek\n• Csevegési előzmények: Az üzenetek helyileg kerülnek tárolásra az eszközén, és bármikor törölhetők\n• Felhasználói kontroll: Teljes kontrollja van az adatai felett, és törölheti azokat az alkalmazás eltávolításával"
+        },
+        "dataSharing": {
+            "title": "5. Adatmegosztás és közzététel",
+            "content": "NEM osztjuk meg, adjuk el, béreljük ki vagy tesszük közzé az információit harmadik felek számára. Az alkalmazás teljes mértékben peer-to-peer alapon működik:\n\n• Nincsenek harmadik féltől származó szolgáltatások: Nem integrálunk elemzési, hirdetési vagy követési szolgáltatásokat\n• Nincs adatátvitel: Az adatai soha nem hagyják el az eszközét, kivéve a közvetlen peer-to-peer kommunikáció során olyan eszközökkel, amelyekhez kifejezetten csatlakozik\n• Felhasználó által vezérelt megosztás: Ön szabályozza, milyen információkat oszt meg az avatar név és az elküldött üzenetek kiválasztásával\n• Nincsenek kormányzati vagy jogi kérések: Mivel nem gyűjtjük vagy tároljuk az adatait, nincs mit szolgáltatnunk harmadik feleknek"
+        },
+        "security": {
+            "title": "6. Biztonsági intézkedések",
+            "content": "Több biztonsági intézkedést alkalmazunk az információi védelmére:\n\n• Végpontok közötti titkosítás: Minden peer-to-peer kommunikáció titkosított\n• Titkosított tárolás: A helyi adatbázisok titkosítást használnak a tárolt adatok védelmére\n• Biztonságos azonosítók: Az eszközazonosítók titkosítottak és átmenetiek\n• Nincs központi meghibásodási pont: A peer-to-peer architektúra kiküszöböli a szerver alapú sebezhetőségeket\n• Engedélyvezérlés: Az Android engedélyrendszere biztosítja, hogy Ön szabályozza, mihez férhet hozzá az alkalmazás"
+        },
+        "childrenPrivacy": {
+            "title": "7. Gyermekek adatvédelme",
+            "content": "A Közeli Közösség tudatosan nem gyűjt információkat 13 év alatti gyermekektől. Az alkalmazás általános közönségnek készült, és nem célozza meg a gyermekeket. Mivel nem gyűjtünk személyes információkat és nem használunk központi szervereket, nem tudjuk meghatározni a felhasználók életkorát. A szülőknek és gondviselőknek felügyelniük kell a gyermekek alkalmazáshasználatát, és biztosítaniuk kell, hogy megértsék a biztonságos kommunikációs gyakorlatokat."
+        },
+        "yourRights": {
+            "title": "8. Az Ön adatvédelmi jogai",
+            "content": "Teljes kontrollja van az adatai felett:\n\n• Hozzáférés: Minden adata helyileg van tárolva az eszközén és Ön számára elérhető\n• Törlés: Az alkalmazás eltávolítása véglegesen törli az összes helyi adatot\n• Kontroll: Ön választja meg, milyen információkat oszt meg és kivel\n• Átláthatóság: Ez az irányelv pontosan elmagyarázza, milyen adatok kerülnek feldolgozásra és hogyan\n• Nincs követés: Nem követjük nyomon viselkedését, tartózkodási helyét vagy használati mintáit\n\nMivel nem gyűjtjük vagy tároljuk az adatait külső szervereken, nincs szükség adathordozhatósági vagy javítási kérelmekre - már most is teljes kontrollja van."
+        },
+        "thirdParty": {
+            "title": "9. Harmadik féltől származó szolgáltatások",
+            "content": "A Közeli Közösség NEM integrál semmilyen harmadik féltől származó szolgáltatást, beleértve:\n\n• Nincsenek elemzési szolgáltatások: Nem használunk Google Analytics-et, Firebase Analytics-et vagy hasonló szolgáltatásokat\n• Nincsenek hirdetési hálózatok: Az alkalmazás reklammentes és nem integrál hirdetési SDK-kat\n• Nincs közösségi média integráció: Nem kapcsolódunk közösségi média platformokhoz\n• Nincsenek felhőszolgáltatások: Nem használunk felhőalapú tárolást vagy biztonsági mentési szolgáltatásokat\n• Nincs összeomlás-jelentés: Nem használunk harmadik féltől származó összeomlás-jelentési eszközöket\n\nEz biztosítja, hogy adatai privátak maradjanak, és soha ne kerüljenek megosztásra külső felekkel."
+        },
+        "international": {
+            "title": "10. Nemzetközi adatátvitelek",
+            "content": "Mivel a Közeli Közösség teljes mértékben peer-to-peer alapon működik központi szerverek nélkül, nincsenek nemzetközi adatátvitelek szervezetünkbe vagy onnan. Amikor egy másik felhasználóhoz csatlakozik, az adatok közvetlenül kerülnek továbbításra az eszközök között helyi vezeték nélküli technológiák (Bluetooth és Wi-Fi Direct) használatával. Az adatátvitel földrajzi helye kizárólag attól függ, hogy Ön és az eszközök, amelyekhez csatlakozik, fizikailag hol találhatók."
+        },
+        "changes": {
+            "title": "11. Az irányelv módosításai",
+            "content": "Időről időre frissíthetjük ezt az Adatvédelmi irányelvet, hogy tükrözze gyakorlataink változásait vagy jogi, működési vagy szabályozási okokból. Amikor lényeges változtatásokat végzünk:\n\n• Frissítjük az \"Utolsó frissítés\" dátumot az irányelv tetején\n• Értesítjük a felhasználókat az alkalmazáson vagy az alkalmazásbolt frissítési megjegyzésein keresztül\n• Legalább 30 nappal előre értesítünk jelentős változásokról\n\nAz alkalmazás folyamatos használata a változások hatályba lépése után a frissített irányelv elfogadását jelenti. Javasoljuk, hogy rendszeresen tekintse át ezt az irányelvet."
+        },
+        "compliance": {
+            "title": "12. Jogi megfelelés",
+            "content": "A Közeli Közösség úgy lett tervezve, hogy megfeleljen:\n\n• GDPR (Általános Adatvédelmi Rendelet): Európai adatvédelmi szabványok\n• CCPA (Kaliforniai Fogyasztói Adatvédelmi Törvény): Kaliforniai adatvédelmi jogok\n• COPPA (Gyermekek Online Adatvédelmi Védelmi Törvénye): Gyermekek adatvédelmének védelme\n• Google Play Áruház irányelvek: Android alkalmazás terjesztési követelmények\n\nA peer-to-peer, szerver nélküli architektúránk eredendően erős adatvédelmi védelmet nyújt, amely meghaladja sok szabályozási követelményt."
+        },
+        "contact": {
+            "title": "13. Kapcsolatfelvétel",
+            "content": "Ha kérdései, aggályai vagy kérései vannak ezzel az Adatvédelmi irányelvvel vagy adatvédelmi gyakorlatainkkal kapcsolatban, kérjük, lépjen kapcsolatba velünk:\n\n• Alkalmazás támogatás: Használja az alkalmazáson belüli támogatási csatornákat\n• E-mail: Kapcsolattartási információk elérhetők weboldalunkon\n• Alkalmazásbolt: Hagyjon visszajelzést a Google Play Áruházban\n\nElkötelezettek vagyunk adatvédelmi aggályainak gyors és átlátható kezelése iránt. Az Ön magánélete és bizalma fontos számunkra."
+        }
+    }
 }

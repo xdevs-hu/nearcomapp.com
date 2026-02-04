@@ -8,5 +8,65 @@
     "feature2": "WiFi Direct and Bluetooth connectivity",
     "feature3": "Peer-to-peer messaging without internet",
     "feature4": "Beautiful gradient design with smooth animations",
-    "feature5": "Interactive width controls for testing responsiveness"
+    "feature5": "Interactive width controls for testing responsiveness",
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "lastUpdated": "Last Updated: January 7, 2026",
+        "intro": {
+            "title": "Introduction",
+            "content": "This Privacy Policy describes how Nearby Community (\"we\", \"our\", or \"the app\") handles information when you use our mobile application. We are committed to protecting your privacy and being transparent about our data practices. This app is designed with privacy as a core principle - we operate on a peer-to-peer basis without central servers."
+        },
+        "dataCollection": {
+            "title": "1. Information We Collect",
+            "content": "Nearby Community is designed to minimize data collection. The app collects and processes the following information locally on your device:\n\n• Device Identifier: A temporary, encrypted identifier used for device discovery\n• Broadcast Name: The display name you choose to share with nearby users\n• Chat Messages: Messages you send and receive during active sessions\n• Device Information: Basic device details needed for Bluetooth and Wi-Fi Direct connectivity\n\nIMPORTANT: All data is processed locally on your device. We do not collect, store, or transmit your personal information to any external servers or third parties."
+        },
+        "permissions": {
+            "title": "2. Permissions Required",
+            "content": "To provide peer-to-peer connectivity, the app requires the following permissions:\n\n• Bluetooth Scan, Connect & Advertise: To discover and connect with nearby devices using Bluetooth Low Energy (BLE)\n• Nearby Wi-Fi Devices: To enable Wi-Fi Direct connections for faster data transfer (Android 13+)\n• Location (Android 13 and below): Required by Android OS for Bluetooth scanning on older versions. We do NOT track your location\n• Notifications: To alert you of new messages and connection events\n\nThese permissions are used exclusively for peer-to-peer functionality and are never used to track, monitor, or collect data about you."
+        },
+        "dataUsage": {
+            "title": "3. How We Use Information",
+            "content": "Information processed by the app is used exclusively for:\n\n• Device Discovery: Enabling you to find and be found by nearby devices\n• Peer-to-Peer Communication: Facilitating direct messaging between devices\n• Connection Management: Maintaining stable connections during active sessions\n• User Experience: Displaying your chosen broadcast name to other users\n\nAll processing occurs locally on your device. Messages and connections are ephemeral - they exist only during active sessions and are not permanently stored or transmitted to external servers."
+        },
+        "dataStorage": {
+            "title": "4. Data Storage and Retention",
+            "content": "• Local Storage Only: All data is stored locally on your device using encrypted databases\n• No Cloud Storage: We do not upload or sync your data to any cloud services\n• Temporary Data: Device discovery information and active connections are temporary and automatically cleared\n• Chat History: Messages are stored locally on your device and can be deleted at any time\n• User Control: You have complete control over your data and can clear it by uninstalling the app"
+        },
+        "dataSharing": {
+            "title": "5. Data Sharing and Disclosure",
+            "content": "We do NOT share, sell, rent, or disclose your information to third parties. The app operates entirely peer-to-peer:\n\n• No Third-Party Services: We do not integrate analytics, advertising, or tracking services\n• No Data Transmission: Your data never leaves your device except during direct peer-to-peer communication with devices you explicitly connect to\n• User-Controlled Sharing: You control what information you share by choosing your broadcast name and the messages you send\n• No Government or Legal Requests: Since we don't collect or store your data, we have nothing to provide to third parties"
+        },
+        "security": {
+            "title": "6. Security Measures",
+            "content": "We implement multiple security measures to protect your information:\n\n• End-to-End Encryption: All peer-to-peer communications are encrypted\n• Encrypted Storage: Local databases use encryption to protect stored data\n• Secure Identifiers: Device identifiers are encrypted and temporary\n• No Central Point of Failure: Peer-to-peer architecture eliminates server-based vulnerabilities\n• Permission Controls: Android's permission system ensures you control what the app can access"
+        },
+        "childrenPrivacy": {
+            "title": "7. Children's Privacy",
+            "content": "Nearby Community does not knowingly collect information from children under 13 years of age. The app is designed for general audiences and does not target children. Since we do not collect personal information or use central servers, we cannot determine the age of users. Parents and guardians should supervise children's use of the app and ensure they understand safe communication practices."
+        },
+        "yourRights": {
+            "title": "8. Your Privacy Rights",
+            "content": "You have complete control over your data:\n\n• Access: All your data is stored locally on your device and accessible to you\n• Deletion: Uninstalling the app permanently deletes all local data\n• Control: You choose what information to share and with whom\n• Transparency: This policy explains exactly what data is processed and how\n• No Tracking: We do not track your behavior, location, or usage patterns\n\nSince we do not collect or store your data on external servers, there are no data portability or correction requests needed - you already have full control."
+        },
+        "thirdParty": {
+            "title": "9. Third-Party Services",
+            "content": "Nearby Community does NOT integrate any third-party services, including:\n\n• No Analytics Services: We do not use Google Analytics, Firebase Analytics, or similar services\n• No Advertising Networks: The app is ad-free and does not integrate advertising SDKs\n• No Social Media Integration: We do not connect to social media platforms\n• No Cloud Services: We do not use cloud storage or backup services\n• No Crash Reporting: We do not use third-party crash reporting tools\n\nThis ensures your data remains private and is never shared with external parties."
+        },
+        "international": {
+            "title": "10. International Data Transfers",
+            "content": "Since Nearby Community operates entirely peer-to-peer without central servers, there are no international data transfers to or from our organization. When you connect with another user, data is transmitted directly between devices using local wireless technologies (Bluetooth and Wi-Fi Direct). The geographic location of data transfer depends solely on where you and the devices you connect with are physically located."
+        },
+        "changes": {
+            "title": "11. Changes to This Policy",
+            "content": "We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. When we make material changes, we will:\n\n• Update the \"Last Updated\" date at the top of this policy\n• Notify users through the app or app store update notes\n• Provide at least 30 days notice for significant changes\n\nContinued use of the app after changes become effective constitutes acceptance of the updated policy. We encourage you to review this policy periodically."
+        },
+        "compliance": {
+            "title": "12. Legal Compliance",
+            "content": "Nearby Community is designed to comply with:\n\n• GDPR (General Data Protection Regulation): European privacy standards\n• CCPA (California Consumer Privacy Act): California privacy rights\n• COPPA (Children's Online Privacy Protection Act): Children's privacy protection\n• Google Play Store Policies: Android app distribution requirements\n\nOur peer-to-peer, no-server architecture inherently provides strong privacy protections that exceed many regulatory requirements."
+        },
+        "contact": {
+            "title": "13. Contact Us",
+            "content": "If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us through:\n\n• App Support: Use the in-app support channels\n• Email: Contact information available on our website\n• App Store: Leave feedback through the Google Play Store\n\nWe are committed to addressing your privacy concerns promptly and transparently. Your privacy and trust are important to us."
+        }
+    }
 }
