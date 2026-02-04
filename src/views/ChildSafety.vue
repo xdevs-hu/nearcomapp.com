@@ -77,8 +77,8 @@
                             <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <div class="contact-details">
-                            <span class="contact-label">{{ $t('childSafety.contact.email') }}</span>
-                            <span class="contact-value">nearcomapp@gmail.com</span>
+                            <span class="contact-label">{{ $t('childSafety.contact.emailLabel') }}</span>
+                            <span class="contact-value">{{ $t('childSafety.contact.emailValue') }}</span>
                         </div>
                     </div>
                     
@@ -87,8 +87,8 @@
                             <path d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12H3M12 21C7.02944 21 3 16.9706 3 12M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M3 12C3 7.02944 7.02944 3 12 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <div class="contact-details">
-                            <span class="contact-label">{{ $t('childSafety.contact.website') }}</span>
-                            <span class="contact-value">https://nearcomapp.com/csae</span>
+                            <span class="contact-label">{{ $t('childSafety.contact.websiteLabel') }}</span>
+                            <span class="contact-value">{{ $t('childSafety.contact.websiteValue') }}</span>
                         </div>
                     </div>
                     
@@ -97,7 +97,7 @@
                             <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <div class="contact-details">
-                            <span class="contact-label">{{ $t('childSafety.contact.responseTime') }}</span>
+                            <span class="contact-label">{{ $t('childSafety.contact.responseTimeLabel') }}</span>
                             <span class="contact-value">{{ $t('childSafety.contact.responseTimeValue') }}</span>
                         </div>
                     </div>

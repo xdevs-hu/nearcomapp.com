@@ -111,9 +111,11 @@
         "contact": {
             "title": "9. Contact Information",
             "content": "For child safety concerns, abuse reports, or questions about our safety policies:",
-            "email": "Safety Email",
-            "website": "Safety Website",
-            "responseTime": "Response Time",
+            "emailLabel": "Safety Email",
+            "emailValue": "nearcomapp@gmail.com",
+            "websiteLabel": "Safety Website",
+            "websiteValue": "https://nearcomapp.com/csae",
+            "responseTimeLabel": "Response Time",
             "responseTimeValue": "Within 24-48 hours for safety reports"
         },
         "emergencyResources": {

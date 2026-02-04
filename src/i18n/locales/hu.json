@@ -111,9 +111,11 @@
         "contact": {
             "title": "9. Kapcsolattartási információk",
             "content": "Gyermekvédelmi aggályok, visszaélések jelentése vagy biztonsági irányelveinkkel kapcsolatos kérdések esetén:",
-            "email": "Biztonsági e-mail",
-            "website": "Biztonsági weboldal",
-            "responseTime": "Válaszidő",
+            "emailLabel": "Biztonsági e-mail",
+            "emailValue": "nearcomapp@gmail.com",
+            "websiteLabel": "Biztonsági weboldal",
+            "websiteValue": "https://nearcomapp.com/csae",
+            "responseTimeLabel": "Válaszidő",
             "responseTimeValue": "24-48 órán belül biztonsági jelentések esetén"
         },
         "emergencyResources": {
