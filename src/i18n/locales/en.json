@@ -94,7 +94,7 @@
         },
         "reporting": {
             "title": "5. Reporting Mechanisms",
-            "content": "If you encounter inappropriate content, abuse, or safety concerns:\n\n• Immediate Action: Disconnect from the device immediately\n• Report to Us: Contact nearcomapp@gmail.com with details\n• Law Enforcement: Report illegal activity to local authorities\n• Emergency: Call emergency services (911, 112, etc.) for immediate threats\n• Documentation: Save any relevant information (device names, timestamps)\n\nWe take all reports seriously and will cooperate fully with law enforcement investigations."
+            "content": "If you encounter inappropriate content, abuse, or safety concerns:\n\n• Immediate Action: Disconnect from the device immediately\n• Report to Us: Contact nearcomapp{'@'}gmail.com with details\n• Law Enforcement: Report illegal activity to local authorities\n• Emergency: Call emergency services (911, 112, etc.) for immediate threats\n• Documentation: Save any relevant information (device names, timestamps)\n\nWe take all reports seriously and will cooperate fully with law enforcement investigations."
         },
         "privacyProtection": {
             "title": "6. Privacy Protection for Minors",
@@ -112,7 +112,7 @@
             "title": "9. Contact Information",
             "content": "For child safety concerns, abuse reports, or questions about our safety policies:",
             "emailLabel": "Safety Email",
-            "emailValue": "nearcomapp@gmail.com",
+            "emailValue": "nearcomapp{'@'}gmail.com",
             "websiteLabel": "Safety Website",
             "websiteValue": "https://nearcomapp.com/csae",
             "responseTimeLabel": "Response Time",

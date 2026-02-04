@@ -94,7 +94,7 @@
         },
         "reporting": {
             "title": "5. Jelentési mechanizmusok",
-            "content": "Ha nem megfelelő tartalommal, visszaéléssel vagy biztonsági aggályokkal találkozik:\n\n• Azonnali intézkedés: Azonnal váljon le az eszközről\n• Jelentés nekünk: Lépjen kapcsolatba a nearcomapp@gmail.com címmel részletekkel\n• Bűnüldözés: Jelentse az illegális tevékenységet a helyi hatóságoknak\n• Vészhelyzet: Hívja a segélyhívó szolgálatokat (112 stb.) azonnali fenyegetések esetén\n• Dokumentáció: Mentse el a releváns információkat (eszköznevek, időbélyegek)\n\nKomolyan vesszük az összes jelentést és teljes mértékben együttműködünk a bűnüldöző vizsgálatokkal."
+            "content": "Ha nem megfelelő tartalommal, visszaéléssel vagy biztonsági aggályokkal találkozik:\n\n• Azonnali intézkedés: Azonnal váljon le az eszközről\n• Jelentés nekünk: Lépjen kapcsolatba a nearcomapp{'@'}gmail.com címmel részletekkel\n• Bűnüldözés: Jelentse az illegális tevékenységet a helyi hatóságoknak\n• Vészhelyzet: Hívja a segélyhívó szolgálatokat (112 stb.) azonnali fenyegetések esetén\n• Dokumentáció: Mentse el a releváns információkat (eszköznevek, időbélyegek)\n\nKomolyan vesszük az összes jelentést és teljes mértékben együttműködünk a bűnüldöző vizsgálatokkal."
         },
         "privacyProtection": {
             "title": "6. Adatvédelem a kiskorúak számára",
@@ -112,7 +112,7 @@
             "title": "9. Kapcsolattartási információk",
             "content": "Gyermekvédelmi aggályok, visszaélések jelentése vagy biztonsági irányelveinkkel kapcsolatos kérdések esetén:",
             "emailLabel": "Biztonsági e-mail",
-            "emailValue": "nearcomapp@gmail.com",
+            "emailValue": "nearcomapp{'@'}gmail.com",
             "websiteLabel": "Biztonsági weboldal",
             "websiteValue": "https://nearcomapp.com/csae",
             "responseTimeLabel": "Válaszidő",
