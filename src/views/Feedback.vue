@@ -86,6 +86,25 @@
             </div>
 
             <div class="form-group">
+                <label for="password" class="form-label">{{ $t('feedback.passwordLabel') }}</label>
+                <input
+                    id="password"
+                    v-model="password"
+                    type="password"
+                    class="form-input"
+                    :placeholder="$t('feedback.passwordPlaceholder')"
+                />
+            </div>
+
+            <div class="info-notice">
+                <div class="info-icon">ℹ️</div>
+                <div class="info-content">
+                    <strong>{{ $t('feedback.authNoticeTitle') }}</strong>
+                    <p>{{ $t('feedback.authNoticeMessage') }}</p>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="message" class="form-label">{{ $t('feedback.messageLabel') }} *</label>
                 <textarea
                     id="message"
@@ -186,24 +205,24 @@
                         <!-- Comment Form -->
                         <div v-if="activeCommentForm === msg._id" class="comment-form">
                             <div class="form-group">
-                                <label class="form-label">{{ $t('feedback.commentNameLabel') }} *</label>
+                                <label class="form-label">{{ $t('feedback.commentEmailLabel') }} *</label>
                                 <input
-                                    v-model="commentForm.name"
-                                    type="text"
+                                    v-model="commentForm.email"
+                                    type="email"
                                     class="form-input"
-                                    :placeholder="$t('feedback.commentNamePlaceholder')"
+                                    :placeholder="$t('feedback.commentEmailPlaceholder')"
                                 />
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">{{ $t('feedback.adminPasswordLabel') }} *</label>
+                                <label class="form-label">{{ $t('feedback.commentPasswordLabel') }} *</label>
                                 <input
                                     v-model="commentForm.password"
                                     type="password"
                                     class="form-input"
-                                    :placeholder="$t('feedback.adminPasswordPlaceholder')"
+                                    :placeholder="$t('feedback.commentPasswordPlaceholder')"
                                 />
-                                <small class="form-hint">{{ $t('feedback.adminPasswordHint') }}</small>
+                                <small class="form-hint">{{ $t('feedback.commentPasswordHint') }}</small>
                             </div>
 
                             <div class="form-group">
@@ -242,7 +261,12 @@
                                 class="comment-item"
                             >
                                 <div class="comment-header">
-                                    <div class="comment-avatar">{{ comment.name.charAt(0).toUpperCase() }}</div>
+                                    <div
+                                        class="comment-avatar"
+                                        :class="{ 'comment-avatar-owner': isCommentByOwner(comment, msg) }"
+                                    >
+                                        {{ comment.name.charAt(0).toUpperCase() }}
+                                    </div>
                                     <div class="comment-info">
                                         <span class="comment-author">{{ comment.name }}</span>
                                         <span v-if="comment.isAdmin" class="admin-badge">{{ $t('feedback.adminBadge') }}</span>
@@ -278,6 +302,7 @@ export default {
         return {
             name: '',
             email: '',
+            password: '',
             version: '',
             topic: '',
             message: '',
@@ -291,7 +316,7 @@ export default {
             versions: ['1.0.0', '1.0.1', '1.1.0', '1.2.0', '2.0.0'],
             activeCommentForm: null,
             commentForm: {
-                name: '',
+                email: '',
                 password: '',
                 message: ''
             },
@@ -332,6 +357,11 @@ export default {
                 this.errorMessage = this.$t('feedback.errorName');
                 return;
             }
+            if (this.name.length > 100) {
+                this.error = true;
+                this.errorMessage = this.$t('feedback.errorNameLength');
+                return;
+            }
             if (!this.version) {
                 this.error = true;
                 this.errorMessage = this.$t('feedback.errorVersion');
@@ -347,6 +377,37 @@ export default {
                 this.errorMessage = this.$t('feedback.errorMessage');
                 return;
             }
+            if (this.message.length < 10) {
+                this.error = true;
+                this.errorMessage = this.$t('feedback.errorMessageMin');
+                return;
+            }
+            if (this.message.length > 2000) {
+                this.error = true;
+                this.errorMessage = this.$t('feedback.errorMessageMax');
+                return;
+            }
+            
+            // Validate email if provided
+            if (this.email && !this.isValidEmail(this.email)) {
+                this.error = true;
+                this.errorMessage = this.$t('feedback.errorEmailInvalid');
+                return;
+            }
+            
+            // Validate password if provided
+            if (this.password && this.password.length < 6) {
+                this.error = true;
+                this.errorMessage = this.$t('feedback.errorPasswordMin');
+                return;
+            }
+            
+            // Validate that if password is provided, email must also be provided
+            if (this.password && !this.email) {
+                this.error = true;
+                this.errorMessage = this.$t('feedback.errorPasswordRequiresEmail');
+                return;
+            }
 
             this.error = false;
             this.isSubmitting = true;
@@ -359,6 +420,7 @@ export default {
                 const feedbackData = {
                     name: this.name,
                     email: this.email || undefined,
+                    password: this.password || undefined,
                     version: this.version,
                     topic: this.topic,
                     message: this.message,
@@ -406,19 +468,40 @@ export default {
         
         async submitComment(feedbackId) {
             // Validate required fields
-            if (!this.commentForm.name.trim()) {
+            if (!this.commentForm.email.trim()) {
                 this.commentError = true;
-                this.commentErrorMessage = this.$t('feedback.errorCommentName');
+                this.commentErrorMessage = this.$t('feedback.errorCommentEmail');
                 return;
             }
+            
+            // Validate email format (unless it's 'admin')
+            if (this.commentForm.email.toLowerCase() !== 'admin' && !this.isValidEmail(this.commentForm.email)) {
+                this.commentError = true;
+                this.commentErrorMessage = this.$t('feedback.errorCommentEmailInvalid');
+                return;
+            }
+            
             if (!this.commentForm.password.trim()) {
                 this.commentError = true;
                 this.commentErrorMessage = this.$t('feedback.errorCommentPassword');
                 return;
             }
+            
             if (!this.commentForm.message.trim()) {
                 this.commentError = true;
                 this.commentErrorMessage = this.$t('feedback.errorCommentMessage');
+                return;
+            }
+            
+            if (this.commentForm.message.length < 5) {
+                this.commentError = true;
+                this.commentErrorMessage = this.$t('feedback.errorCommentMessageMin');
+                return;
+            }
+            
+            if (this.commentForm.message.length > 1000) {
+                this.commentError = true;
+                this.commentErrorMessage = this.$t('feedback.errorCommentMessageMax');
                 return;
             }
 
@@ -426,45 +509,55 @@ export default {
             this.isSubmittingComment = true;
 
             try {
-                // First, login as admin to get token
-                const loginResponse = await apiService.login('admin', this.commentForm.password);
-                
-                if (loginResponse.success) {
-                    // Store token temporarily
-                    localStorage.setItem('adminToken', loginResponse.data.token);
-                    
-                    // Execute reCAPTCHA
-                    const token = await this.executeRecaptcha('submit_comment');
-                    
-                    // Submit comment
-                    const commentData = {
-                        name: this.commentForm.name,
-                        message: this.commentForm.message,
-                        recaptchaToken: token
-                    };
-
-                    const response = await apiService.createComment(feedbackId, commentData);
-
-                    if (response.success) {
-                        // Reset form first
-                        this.resetCommentForm();
-                        this.activeCommentForm = null;
-                        
-                        // Reload feedback to show new comment
-                        await this.loadFeedback();
-                        
-                        // Scroll to the updated message card after reload
-                        this.$nextTick(() => {
-                            setTimeout(() => {
-                                const messageCard = document.querySelector(`[data-feedback-id="${feedbackId}"]`);
-                                if (messageCard) {
-                                    messageCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                }
-                            }, 100);
-                        });
+                // Try to login as admin first (if email is 'admin')
+                let isAdmin = false;
+                if (this.commentForm.email.toLowerCase() === 'admin') {
+                    try {
+                        const loginResponse = await apiService.login('admin', this.commentForm.password);
+                        if (loginResponse.success) {
+                            localStorage.setItem('adminToken', loginResponse.data.token);
+                            isAdmin = true;
+                        }
+                    } catch (adminError) {
+                        // Not admin, will try as message owner
+                        console.log('Not admin credentials, trying as message owner');
                     }
+                }
+                
+                // Execute reCAPTCHA
+                const token = await this.executeRecaptcha('submit_comment');
+                
+                // Submit comment with email and password (name will be determined by API)
+                const commentData = {
+                    email: this.commentForm.email,
+                    password: this.commentForm.password,
+                    message: this.commentForm.message,
+                    recaptchaToken: token
+                };
+
+                const response = await apiService.createComment(feedbackId, commentData);
+
+                if (response.success) {
+                    // Reset form first
+                    this.resetCommentForm();
+                    this.activeCommentForm = null;
                     
-                    // Clear token after use
+                    // Reload feedback to show new comment
+                    await this.loadFeedback();
+                    
+                    // Scroll to the updated message card after reload
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            const messageCard = document.querySelector(`[data-feedback-id="${feedbackId}"]`);
+                            if (messageCard) {
+                                messageCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }, 100);
+                    });
+                }
+                
+                // Clear admin token if it was set
+                if (isAdmin) {
                     localStorage.removeItem('adminToken');
                 }
 
@@ -472,9 +565,13 @@ export default {
                 console.error('Comment submission error:', error);
                 this.commentError = true;
                 
-                // Check if it's an authentication error
-                if (error.message.includes('Invalid credentials') || error.message.includes('Unauthorized')) {
-                    this.commentErrorMessage = this.$t('feedback.errorInvalidPassword');
+                // Provide specific error messages
+                if (error.message.includes('Invalid email or password')) {
+                    this.commentErrorMessage = this.$t('feedback.errorInvalidCredentials');
+                } else if (error.message.includes('authentication enabled')) {
+                    this.commentErrorMessage = this.$t('feedback.errorNoAuth');
+                } else if (error.message.includes('Authentication required')) {
+                    this.commentErrorMessage = this.$t('feedback.errorAuthRequired');
                 } else {
                     this.commentErrorMessage = error.message || this.$t('feedback.errorRecaptcha');
                 }
@@ -493,7 +590,7 @@ export default {
         
         resetCommentForm() {
             this.commentForm = {
-                name: '',
+                email: '',
                 password: '',
                 message: ''
             };
@@ -504,6 +601,7 @@ export default {
         resetForm() {
             this.name = '';
             this.email = '';
+            this.password = '';
             this.version = '';
             this.topic = '';
             this.message = '';
@@ -514,6 +612,12 @@ export default {
         
         goBack() {
             this.$router.push('/');
+        },
+        
+        isValidEmail(email) {
+            // Simple email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
         },
         
         formatDateTime(dateString) {
@@ -555,6 +659,16 @@ export default {
         
         capitalize(str) {
             return str.charAt(0).toUpperCase() + str.slice(1);
+        },
+        
+        isCommentByOwner(comment, message) {
+            // Check if the comment author matches the message owner
+            // Compare by email (case-insensitive) or name (case-insensitive)
+            if (comment.email && message.email) {
+                return comment.email.toLowerCase() === message.email.toLowerCase();
+            }
+            // Fallback to name comparison if emails not available
+            return comment.name.toLowerCase() === message.name.toLowerCase();
         }
     },
     
@@ -800,6 +914,39 @@ export default {
 .btn-comment:hover {
     background: rgba(72, 184, 120, 0.2);
     border-color: rgba(72, 184, 120, 0.5);
+}
+
+.info-notice {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(66, 153, 225, 0.1);
+    border: 1px solid rgba(66, 153, 225, 0.3);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-content strong {
+    display: block;
+    color: #63B3ED;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.info-content p {
+    color: #E2E8F0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .recaptcha-notice {
@@ -1082,6 +1229,10 @@ export default {
     font-weight: 700;
     color: white;
     flex-shrink: 0;
+}
+
+.comment-avatar-owner {
+    background: linear-gradient(135deg, #48B878 0%, #68D391 100%);
 }
 
 .comment-info {
