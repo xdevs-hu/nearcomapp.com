@@ -11,6 +11,7 @@
     "clean:build": "rm -rf dist && vite build"
   },
   "dependencies": {
+    "axios": "^1.13.5",
     "vue": "^3.4.0",
     "vue-i18n": "^9.9.0",
     "vue-recaptcha-v3": "^2.0.1",

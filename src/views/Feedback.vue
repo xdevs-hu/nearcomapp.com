@@ -10,7 +10,7 @@
         <div class="filter-section">
             <div class="filter-group">
                 <label class="filter-label">{{ $t('feedback.filterByVersion') }}</label>
-                <select v-model="filterVersion" class="filter-select">
+                <select v-model="filterVersion" @change="loadFeedback" class="filter-select">
                     <option value="">{{ $t('feedback.allVersions') }}</option>
                     <option v-for="version in versions" :key="version" :value="version">
                         {{ version }}
@@ -19,7 +19,7 @@
             </div>
             <div class="filter-group">
                 <label class="filter-label">{{ $t('feedback.filterByTopic') }}</label>
-                <select v-model="filterTopic" class="filter-select">
+                <select v-model="filterTopic" @change="loadFeedback" class="filter-select">
                     <option value="">{{ $t('feedback.allTopics') }}</option>
                     <option value="feedback">{{ $t('feedback.topicFeedback') }}</option>
                     <option value="bug">{{ $t('feedback.topicBug') }}</option>
@@ -125,19 +125,25 @@
             </button>
         </div>
 
+        <!-- Loading State -->
+        <div v-if="isLoading" class="loading-container">
+            <div class="loading-spinner"></div>
+            <p>Loading feedback...</p>
+        </div>
+
         <!-- Messages List -->
-        <div class="messages-section">
+        <div v-else class="messages-section">
             <h2 class="messages-title">{{ $t('feedback.messagesTitle') }}</h2>
-            <p class="messages-count">{{ filteredMessages.length }} {{ $t('feedback.messagesCount') }}</p>
+            <p class="messages-count">{{ messages.length }} {{ $t('feedback.messagesCount') }}</p>
             
-            <div v-if="filteredMessages.length === 0" class="no-messages">
+            <div v-if="messages.length === 0" class="no-messages">
                 <p>{{ $t('feedback.noMessages') }}</p>
             </div>
 
             <div v-else class="messages-list">
                 <div
-                    v-for="msg in filteredMessages"
-                    :key="msg.id"
+                    v-for="msg in messages"
+                    :key="msg._id"
                     class="message-card"
                 >
                     <div class="message-header">
@@ -145,13 +151,16 @@
                             <div class="author-avatar">{{ msg.name.charAt(0).toUpperCase() }}</div>
                             <div class="author-info">
                                 <span class="author-name">{{ msg.name }}</span>
-                                <span class="message-date">{{ formatDateTime(msg.date) }}</span>
+                                <span class="message-date">{{ formatDateTime(msg.createdAt) }}</span>
                             </div>
                         </div>
                         <div class="message-tags">
                             <span class="tag tag-version">v{{ msg.version }}</span>
                             <span class="tag" :class="`tag-${msg.topic}`">
                                 {{ $t(`feedback.topic${capitalize(msg.topic)}`) }}
+                            </span>
+                            <span class="tag" :class="`tag-status-${msg.status}`">
+                                {{ msg.status }}
                             </span>
                         </div>
                     </div>
@@ -166,15 +175,15 @@
                                 {{ msg.comments?.length || 0 }} {{ $t('feedback.comments') }}
                             </span>
                             <button 
-                                @click="toggleCommentForm(msg.id)" 
+                                @click="toggleCommentForm(msg._id)" 
                                 class="btn-comment"
                             >
-                                {{ activeCommentForm === msg.id ? $t('feedback.hideCommentForm') : $t('feedback.addComment') }}
+                                {{ activeCommentForm === msg._id ? $t('feedback.hideCommentForm') : $t('feedback.addComment') }}
                             </button>
                         </div>
 
                         <!-- Comment Form -->
-                        <div v-if="activeCommentForm === msg.id" class="comment-form">
+                        <div v-if="activeCommentForm === msg._id" class="comment-form">
                             <div class="form-group">
                                 <label class="form-label">{{ $t('feedback.commentNameLabel') }} *</label>
                                 <input
@@ -215,7 +224,7 @@
                                     {{ $t('feedback.cancelButton') }}
                                 </button>
                                 <button 
-                                    @click="submitComment(msg.id)" 
+                                    @click="submitComment(msg._id)" 
                                     class="btn btn-primary btn-sm"
                                     :disabled="isSubmittingComment"
                                 >
@@ -228,7 +237,7 @@
                         <div v-if="msg.comments && msg.comments.length > 0" class="comments-list">
                             <div
                                 v-for="comment in msg.comments"
-                                :key="comment.id"
+                                :key="comment._id"
                                 class="comment-item"
                             >
                                 <div class="comment-header">
@@ -236,7 +245,7 @@
                                     <div class="comment-info">
                                         <span class="comment-author">{{ comment.name }}</span>
                                         <span v-if="comment.isAdmin" class="admin-badge">{{ $t('feedback.adminBadge') }}</span>
-                                        <span class="comment-date">{{ formatDateTime(comment.date) }}</span>
+                                        <span class="comment-date">{{ formatDateTime(comment.createdAt) }}</span>
                                     </div>
                                 </div>
                                 <div class="comment-content">
@@ -253,9 +262,7 @@
 
 <script>
 import { useReCaptcha } from 'vue-recaptcha-v3';
-
-// ADMIN PASSWORD - Change this to your secure password
-const ADMIN_PASSWORD = 'NearComApp2026!SecureAdmin#Password';
+import apiService from '../services/api.js';
 
 export default {
     name: 'Feedback',
@@ -277,6 +284,7 @@ export default {
             errorMessage: '',
             submitted: false,
             isSubmitting: false,
+            isLoading: false,
             filterVersion: '',
             filterTopic: '',
             versions: ['1.0.0', '1.0.1', '1.1.0', '1.2.0', '2.0.0'],
@@ -289,63 +297,32 @@ export default {
             commentError: false,
             commentErrorMessage: '',
             isSubmittingComment: false,
-            messages: [
-                {
-                    id: 1,
-                    name: 'John Doe',
-                    version: '1.0.0',
-                    topic: 'feedback',
-                    message: 'Great app! Love the peer-to-peer functionality.',
-                    date: new Date('2026-02-20T14:30:00'),
-                    comments: [
-                        {
-                            id: 1,
-                            name: 'Admin',
-                            isAdmin: true,
-                            message: 'Thank you for your feedback! We\'re glad you enjoy the app.',
-                            date: new Date('2026-02-20T15:45:00')
-                        }
-                    ]
-                },
-                {
-                    id: 2,
-                    name: 'Jane Smith',
-                    version: '1.0.0',
-                    topic: 'bug',
-                    message: 'Found a small issue with Bluetooth connectivity on Android 12.',
-                    date: new Date('2026-02-22T09:15:00'),
-                    comments: []
-                },
-                {
-                    id: 3,
-                    name: 'Mike Johnson',
-                    version: '1.0.1',
-                    topic: 'enhancement',
-                    message: 'Would be nice to have group chat functionality.',
-                    date: new Date('2026-02-25T18:20:00'),
-                    comments: [
-                        {
-                            id: 1,
-                            name: 'Admin',
-                            isAdmin: true,
-                            message: 'Great suggestion! We\'re considering this for a future release.',
-                            date: new Date('2026-02-25T19:10:00')
-                        }
-                    ]
-                }
-            ]
+            messages: [],
+            adminToken: null
         };
     },
-    computed: {
-        filteredMessages() {
-            return this.messages.filter(msg => {
-                const versionMatch = !this.filterVersion || msg.version === this.filterVersion;
-                const topicMatch = !this.filterTopic || msg.topic === this.filterTopic;
-                return versionMatch && topicMatch;
-            }).sort((a, b) => b.date - a.date);
-        }
-    },
     methods: {
+        async loadFeedback() {
+            this.isLoading = true;
+            try {
+                const params = {};
+                if (this.filterVersion) params.version = this.filterVersion;
+                if (this.filterTopic) params.topic = this.filterTopic;
+                
+                const response = await apiService.getFeedback(params);
+                
+                if (response.success) {
+                    this.messages = response.data.feedback || [];
+                }
+            } catch (error) {
+                console.error('Failed to load feedback:', error);
+                this.error = true;
+                this.errorMessage = error.message || 'Failed to load feedback';
+            } finally {
+                this.isLoading = false;
+            }
+        },
+        
         async submitFeedback() {
             // Validate required fields
             if (!this.name.trim()) {
@@ -379,35 +356,35 @@ export default {
                 // Execute reCAPTCHA
                 const token = await this.executeRecaptcha('submit_feedback');
                 
-                // Create new message
-                const newMessage = {
-                    id: Date.now(),
+                // Submit feedback to API
+                const feedbackData = {
                     name: this.name,
+                    email: this.email || undefined,
                     version: this.version,
                     topic: this.topic,
                     message: this.message,
-                    date: new Date(),
-                    comments: [],
                     recaptchaToken: token
                 };
 
-                // Add to messages list
-                this.messages.unshift(newMessage);
+                const response = await apiService.createFeedback(feedbackData);
 
-                // Show success message
-                this.submitted = true;
-
-                // Save to localStorage for persistence (demo purposes)
-                this.saveToLocalStorage();
+                if (response.success) {
+                    // Show success message
+                    this.submitted = true;
+                    
+                    // Reload feedback list
+                    await this.loadFeedback();
+                }
 
             } catch (error) {
-                console.error('reCAPTCHA error:', error);
+                console.error('Feedback submission error:', error);
                 this.error = true;
-                this.errorMessage = this.$t('feedback.errorRecaptcha');
+                this.errorMessage = error.message || this.$t('feedback.errorRecaptcha');
             } finally {
                 this.isSubmitting = false;
             }
         },
+        
         toggleCommentForm(messageId) {
             if (this.activeCommentForm === messageId) {
                 this.activeCommentForm = null;
@@ -417,7 +394,8 @@ export default {
                 this.resetCommentForm();
             }
         },
-        async submitComment(messageId) {
+        
+        async submitComment(feedbackId) {
             // Validate required fields
             if (!this.commentForm.name.trim()) {
                 this.commentError = true;
@@ -435,62 +413,68 @@ export default {
                 return;
             }
 
-            // Verify admin password
-            if (this.commentForm.password !== ADMIN_PASSWORD) {
-                this.commentError = true;
-                this.commentErrorMessage = this.$t('feedback.errorInvalidPassword');
-                return;
-            }
-
             this.commentError = false;
             this.isSubmittingComment = true;
 
             try {
-                // Wait for reCAPTCHA to be loaded
-                await this.recaptchaLoaded();
+                // First, login as admin to get token
+                const loginResponse = await apiService.login('admin', this.commentForm.password);
                 
-                // Execute reCAPTCHA
-                const token = await this.executeRecaptcha('submit_comment');
-                
-                // Find the message
-                const message = this.messages.find(m => m.id === messageId);
-                if (message) {
-                    // Create new comment
-                    const newComment = {
-                        id: Date.now(),
+                if (loginResponse.success) {
+                    // Store token temporarily
+                    localStorage.setItem('adminToken', loginResponse.data.token);
+                    
+                    // Wait for reCAPTCHA to be loaded
+                    await this.recaptchaLoaded();
+                    
+                    // Execute reCAPTCHA
+                    const token = await this.executeRecaptcha('submit_comment');
+                    
+                    // Submit comment
+                    const commentData = {
                         name: this.commentForm.name,
-                        isAdmin: true,
                         message: this.commentForm.message,
-                        date: new Date(),
                         recaptchaToken: token
                     };
 
-                    // Add comment to message
-                    if (!message.comments) {
-                        message.comments = [];
+                    const response = await apiService.createComment(feedbackId, commentData);
+
+                    if (response.success) {
+                        // Reload feedback to show new comment
+                        await this.loadFeedback();
+                        
+                        // Reset form
+                        this.resetCommentForm();
+                        this.activeCommentForm = null;
                     }
-                    message.comments.push(newComment);
-
-                    // Save to localStorage
-                    this.saveToLocalStorage();
-
-                    // Reset form
-                    this.resetCommentForm();
-                    this.activeCommentForm = null;
+                    
+                    // Clear token after use
+                    localStorage.removeItem('adminToken');
                 }
 
             } catch (error) {
-                console.error('reCAPTCHA error:', error);
+                console.error('Comment submission error:', error);
                 this.commentError = true;
-                this.commentErrorMessage = this.$t('feedback.errorRecaptcha');
+                
+                // Check if it's an authentication error
+                if (error.message.includes('Invalid credentials') || error.message.includes('Unauthorized')) {
+                    this.commentErrorMessage = this.$t('feedback.errorInvalidPassword');
+                } else {
+                    this.commentErrorMessage = error.message || this.$t('feedback.errorRecaptcha');
+                }
+                
+                // Clear token on error
+                localStorage.removeItem('adminToken');
             } finally {
                 this.isSubmittingComment = false;
             }
         },
+        
         cancelComment() {
             this.activeCommentForm = null;
             this.resetCommentForm();
         },
+        
         resetCommentForm() {
             this.commentForm = {
                 name: '',
@@ -500,6 +484,7 @@ export default {
             this.commentError = false;
             this.commentErrorMessage = '';
         },
+        
         resetForm() {
             this.name = '';
             this.email = '';
@@ -510,10 +495,13 @@ export default {
             this.error = false;
             this.errorMessage = '';
         },
+        
         goBack() {
             this.$router.push('/');
         },
-        formatDateTime(date) {
+        
+        formatDateTime(dateString) {
+            const date = new Date(dateString);
             const now = new Date();
             const diff = now - date;
             const minutes = Math.floor(diff / (1000 * 60));
@@ -548,38 +536,15 @@ export default {
                 });
             }
         },
+        
         capitalize(str) {
             return str.charAt(0).toUpperCase() + str.slice(1);
-        },
-        saveToLocalStorage() {
-            try {
-                localStorage.setItem('feedbackMessages', JSON.stringify(this.messages));
-            } catch (e) {
-                console.error('Failed to save to localStorage:', e);
-            }
-        },
-        loadFromLocalStorage() {
-            try {
-                const saved = localStorage.getItem('feedbackMessages');
-                if (saved) {
-                    const parsed = JSON.parse(saved);
-                    // Convert date strings back to Date objects
-                    this.messages = parsed.map(msg => ({
-                        ...msg,
-                        date: new Date(msg.date),
-                        comments: msg.comments?.map(comment => ({
-                            ...comment,
-                            date: new Date(comment.date)
-                        })) || []
-                    }));
-                }
-            } catch (e) {
-                console.error('Failed to load from localStorage:', e);
-            }
         }
     },
+    
     mounted() {
-        this.loadFromLocalStorage();
+        // Load feedback when component mounts
+        this.loadFeedback();
     }
 };
 </script>
@@ -618,6 +583,29 @@ export default {
     font-size: 1rem;
     color: #A0AEC0;
     line-height: 1.6;
+}
+
+/* Loading State */
+.loading-container {
+    text-align: center;
+    padding: 60px 30px;
+    background: rgba(45, 55, 72, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(72, 184, 120, 0.2);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: 4px solid rgba(72, 184, 120, 0.2);
+    border-top-color: #48B878;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Filter Section */
@@ -988,6 +976,24 @@ export default {
     background: rgba(159, 122, 234, 0.2);
     color: #B794F4;
     border: 1px solid rgba(159, 122, 234, 0.3);
+}
+
+.tag-status-pending {
+    background: rgba(237, 137, 54, 0.2);
+    color: #F6AD55;
+    border: 1px solid rgba(237, 137, 54, 0.3);
+}
+
+.tag-status-reviewed {
+    background: rgba(66, 153, 225, 0.2);
+    color: #63B3ED;
+    border: 1px solid rgba(66, 153, 225, 0.3);
+}
+
+.tag-status-resolved {
+    background: rgba(72, 184, 120, 0.2);
+    color: #68D391;
+    border: 1px solid rgba(72, 184, 120, 0.3);
 }
 
 .message-content {
