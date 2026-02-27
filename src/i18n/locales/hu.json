@@ -53,6 +53,7 @@
         "errorPasswordMin": "A jelszónak legalább 6 karakter hosszúnak kell lennie.",
         "errorPasswordRequiresEmail": "Email cím szükséges, ha jelszót adsz meg.",
         "errorRecaptcha": "reCAPTCHA ellenőrzés sikertelen. Kérjük, próbáld újra.",
+        "errorValidationFailed": "Az ellenőrzés sikertelen. Kérjük, próbáld meg újra egy kicsit később...",
         "recaptchaNotice": "Ez az oldal a reCAPTCHA védelme alatt áll, és a Google Adatvédelmi irányelvei és Szolgáltatási feltételei érvényesek.",
         "messagesTitle": "Közösségi üzenetek",
         "messagesCount": "üzenet",

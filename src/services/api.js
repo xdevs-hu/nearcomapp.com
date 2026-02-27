@@ -43,9 +43,11 @@ apiClient.interceptors.response.use(
                 localStorage.removeItem('adminToken');
             }
             
-            // Return error message from server if available
+            // Return error message from server if available, and include status code
             const errorMessage = data?.message || error.message;
-            return Promise.reject(new Error(errorMessage));
+            const enhancedError = new Error(errorMessage);
+            enhancedError.status = status;
+            return Promise.reject(enhancedError);
         } else if (error.request) {
             // Request made but no response received
             return Promise.reject(new Error('No response from server. Please check your connection.'));

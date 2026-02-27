@@ -53,6 +53,7 @@
         "errorPasswordMin": "Password must be at least 6 characters.",
         "errorPasswordRequiresEmail": "Email is required when password is provided.",
         "errorRecaptcha": "reCAPTCHA verification failed. Please try again.",
+        "errorValidationFailed": "Validation failed. Please try again a little later...",
         "recaptchaNotice": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
         "messagesTitle": "Community Messages",
         "messagesCount": "messages",

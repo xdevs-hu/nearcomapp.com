@@ -347,7 +347,7 @@ export default {
             isLoading: false,
             filterVersion: '',
             filterTopic: '',
-            versions: ['1.0.0', '1.0.1', '1.1.0', '1.2.0', '2.0.0'],
+            versions: ['1.0.0'],
             activeCommentForm: null,
             commentForm: {
                 email: '',
@@ -485,7 +485,13 @@ export default {
             } catch (error) {
                 console.error('Feedback submission error:', error);
                 this.error = true;
-                this.errorMessage = error.message || this.$t('feedback.errorRecaptcha');
+                
+                // If API returns 400 but UI validation passed, show a more helpful message
+                if (error.status === 400 && error.message.toLowerCase().includes('validation')) {
+                    this.errorMessage = this.$t('feedback.errorValidationFailed');
+                } else {
+                    this.errorMessage = error.message || this.$t('feedback.errorRecaptcha');
+                }
             } finally {
                 this.isSubmitting = false;
             }
@@ -607,6 +613,9 @@ export default {
                     this.commentErrorMessage = this.$t('feedback.errorNoAuth');
                 } else if (error.message.includes('Authentication required')) {
                     this.commentErrorMessage = this.$t('feedback.errorAuthRequired');
+                } else if (error.status === 400 && error.message.toLowerCase().includes('validation')) {
+                    // If API returns 400 but UI validation passed, show a more helpful message
+                    this.commentErrorMessage = this.$t('feedback.errorValidationFailed');
                 } else {
                     this.commentErrorMessage = error.message || this.$t('feedback.errorRecaptcha');
                 }
