@@ -29,7 +29,7 @@
         "topicLabel": "Téma",
         "selectTopic": "Válassz témát",
         "emailLabel": "Email címed (opcionális)",
-        "emailPlaceholder": "email.cimed@pelda.hu",
+        "emailPlaceholder": "email.cimed{'@'}pelda.hu",
         "messageLabel": "Üzeneted",
         "messagePlaceholder": "Mondd el, mit gondolsz...",
         "submitButton": "Üzenet küldése",

@@ -29,7 +29,7 @@
         "topicLabel": "Topic",
         "selectTopic": "Select topic",
         "emailLabel": "Your Email (optional)",
-        "emailPlaceholder": "your.email@example.com",
+        "emailPlaceholder": "your.email{'@'}example.com",
         "messageLabel": "Your Message",
         "messagePlaceholder": "Tell us what you think...",
         "submitButton": "Post Message",

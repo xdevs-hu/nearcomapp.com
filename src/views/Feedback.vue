@@ -144,6 +144,7 @@
                 <div
                     v-for="msg in messages"
                     :key="msg._id"
+                    :data-feedback-id="msg._id"
                     class="message-card"
                 >
                     <div class="message-header">
@@ -302,6 +303,7 @@ export default {
         };
     },
     methods: {
+
         async loadFeedback() {
             this.isLoading = true;
             try {
@@ -350,9 +352,6 @@ export default {
             this.isSubmitting = true;
 
             try {
-                // Wait for reCAPTCHA to be loaded
-                await this.recaptchaLoaded();
-                
                 // Execute reCAPTCHA
                 const token = await this.executeRecaptcha('submit_feedback');
                 
@@ -369,11 +368,21 @@ export default {
                 const response = await apiService.createFeedback(feedbackData);
 
                 if (response.success) {
+                    // Reload feedback list first to include the new message
+                    await this.loadFeedback();
+                    
                     // Show success message
                     this.submitted = true;
                     
-                    // Reload feedback list
-                    await this.loadFeedback();
+                    // Scroll to the messages section after a short delay
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            const messagesSection = document.querySelector('.messages-section');
+                            if (messagesSection) {
+                                messagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }, 100);
+                    });
                 }
 
             } catch (error) {
@@ -424,9 +433,6 @@ export default {
                     // Store token temporarily
                     localStorage.setItem('adminToken', loginResponse.data.token);
                     
-                    // Wait for reCAPTCHA to be loaded
-                    await this.recaptchaLoaded();
-                    
                     // Execute reCAPTCHA
                     const token = await this.executeRecaptcha('submit_comment');
                     
@@ -440,12 +446,22 @@ export default {
                     const response = await apiService.createComment(feedbackId, commentData);
 
                     if (response.success) {
+                        // Reset form first
+                        this.resetCommentForm();
+                        this.activeCommentForm = null;
+                        
                         // Reload feedback to show new comment
                         await this.loadFeedback();
                         
-                        // Reset form
-                        this.resetCommentForm();
-                        this.activeCommentForm = null;
+                        // Scroll to the updated message card after reload
+                        this.$nextTick(() => {
+                            setTimeout(() => {
+                                const messageCard = document.querySelector(`[data-feedback-id="${feedbackId}"]`);
+                                if (messageCard) {
+                                    messageCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }
+                            }, 100);
+                        });
                     }
                     
                     // Clear token after use
