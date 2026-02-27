@@ -87,13 +87,30 @@
 
             <div class="form-group">
                 <label for="password" class="form-label">{{ $t('feedback.passwordLabel') }}</label>
-                <input
-                    id="password"
-                    v-model="password"
-                    type="password"
-                    class="form-input"
-                    :placeholder="$t('feedback.passwordPlaceholder')"
-                />
+                <div class="password-input-wrapper">
+                    <input
+                        id="password"
+                        v-model="password"
+                        :type="showPassword ? 'text' : 'password'"
+                        class="form-input password-input"
+                        :placeholder="$t('feedback.passwordPlaceholder')"
+                    />
+                    <button
+                        type="button"
+                        class="password-toggle-btn"
+                        @click="togglePasswordVisibility"
+                        :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                    >
+                        <svg v-if="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             <div class="info-notice">
@@ -216,12 +233,29 @@
 
                             <div class="form-group">
                                 <label class="form-label">{{ $t('feedback.commentPasswordLabel') }} *</label>
-                                <input
-                                    v-model="commentForm.password"
-                                    type="password"
-                                    class="form-input"
-                                    :placeholder="$t('feedback.commentPasswordPlaceholder')"
-                                />
+                                <div class="password-input-wrapper">
+                                    <input
+                                        v-model="commentForm.password"
+                                        :type="showPassword ? 'text' : 'password'"
+                                        class="form-input password-input"
+                                        :placeholder="$t('feedback.commentPasswordPlaceholder')"
+                                    />
+                                    <button
+                                        type="button"
+                                        class="password-toggle-btn"
+                                        @click="togglePasswordVisibility"
+                                        :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                                    >
+                                        <svg v-if="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                                        </svg>
+                                    </button>
+                                </div>
                                 <small class="form-hint">{{ $t('feedback.commentPasswordHint') }}</small>
                             </div>
 
@@ -324,7 +358,8 @@ export default {
             commentErrorMessage: '',
             isSubmittingComment: false,
             messages: [],
-            adminToken: null
+            adminToken: null,
+            showPassword: false
         };
     },
     methods: {
@@ -669,6 +704,10 @@ export default {
             }
             // Fallback to name comparison if emails not available
             return comment.name.toLowerCase() === message.name.toLowerCase();
+        },
+        
+        togglePasswordVisibility() {
+            this.showPassword = !this.showPassword;
         }
     },
     
@@ -834,6 +873,48 @@ export default {
     outline: none;
     border-color: #48B878;
     box-shadow: 0 0 0 3px rgba(72, 184, 120, 0.1);
+}
+
+/* Password Input Wrapper */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input {
+    padding-right: 48px;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #A0AEC0;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.password-toggle-btn:hover {
+    color: #68D391;
+    background: rgba(72, 184, 120, 0.1);
+}
+
+.password-toggle-btn:focus {
+    outline: none;
+    color: #68D391;
+    box-shadow: 0 0 0 2px rgba(72, 184, 120, 0.3);
+}
+
+.password-toggle-btn svg {
+    width: 20px;
+    height: 20px;
 }
 
 .form-textarea {
