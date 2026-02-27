@@ -15,7 +15,7 @@ app.use(VueReCaptcha, {
     loaderOptions: {
         autoHideBadge: false,
         explicitRenderParameters: {
-            badge: 'bottomright'
+            badge: 'bottomleft'
         }
     }
 });
