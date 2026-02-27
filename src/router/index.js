@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import FeatureGraphic from '../components/FeatureGraphic.vue';
 import Privacy from '../views/Privacy.vue';
 import ChildSafety from '../views/ChildSafety.vue';
+import Feedback from '../views/Feedback.vue';
 
 const routes = [
     {
@@ -18,6 +19,11 @@ const routes = [
         path: '/csae',
         name: 'ChildSafety',
         component: ChildSafety
+    },
+    {
+        path: '/feedback',
+        name: 'Feedback',
+        component: Feedback
     }
 ];
 

@@ -9,6 +9,21 @@
     "feature3": "Peer-to-peer üzenetküldés internet nélkül",
     "feature4": "Gyönyörű gradiens dizájn sima animációkkal",
     "feature5": "Interaktív szélesség vezérlők a reszponzivitás teszteléséhez",
+    "feedback": {
+        "buttonText": "Visszajelzés",
+        "title": "Szeretnénk hallani a véleményedet!",
+        "subtitle": "Segíts nekünk fejleszteni a Közeli Közösséget",
+        "description": "A visszajelzésed értékes számunkra. Kérjük, oszd meg gondolataidat, javaslataidat vagy jelents bármilyen problémát, amellyel találkoztál.",
+        "emailLabel": "Email címed (opcionális)",
+        "emailPlaceholder": "email.cimed@pelda.hu",
+        "messageLabel": "Üzeneted",
+        "messagePlaceholder": "Mondd el, mit gondolsz...",
+        "submitButton": "Visszajelzés küldése",
+        "cancelButton": "Mégse",
+        "successMessage": "Köszönjük a visszajelzésed!",
+        "errorMessage": "Kérjük, írd be az üzenetedet.",
+        "contactEmail": "nearcomapp@gmail.com"
+    },
     "privacyPolicy": {
         "title": "Adatvédelmi irányelvek",
         "lastUpdated": "Utolsó frissítés: 2026. január 7.",

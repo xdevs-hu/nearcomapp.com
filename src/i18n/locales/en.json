@@ -9,6 +9,21 @@
     "feature3": "Peer-to-peer messaging without internet",
     "feature4": "Beautiful gradient design with smooth animations",
     "feature5": "Interactive width controls for testing responsiveness",
+    "feedback": {
+        "buttonText": "Feedback",
+        "title": "We'd Love Your Feedback!",
+        "subtitle": "Help us improve Nearby Community",
+        "description": "Your feedback is valuable to us. Please share your thoughts, suggestions, or report any issues you've encountered.",
+        "emailLabel": "Your Email (optional)",
+        "emailPlaceholder": "your.email@example.com",
+        "messageLabel": "Your Message",
+        "messagePlaceholder": "Tell us what you think...",
+        "submitButton": "Send Feedback",
+        "cancelButton": "Cancel",
+        "successMessage": "Thank you for your feedback!",
+        "errorMessage": "Please enter your message.",
+        "contactEmail": "nearcomapp@gmail.com"
+    },
     "privacyPolicy": {
         "title": "Privacy Policy",
         "lastUpdated": "Last Updated: January 7, 2026",

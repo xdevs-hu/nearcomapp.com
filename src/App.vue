@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <LanguageSwitcher />
+        <FeedbackButton v-if="$route.path !== '/feedback'" />
         <div class="container fade-in">
             <router-view />
         </div>
@@ -9,11 +10,13 @@
 
 <script>
 import LanguageSwitcher from './components/LanguageSwitcher.vue';
+import FeedbackButton from './components/FeedbackButton.vue';
 
 export default {
     name: 'App',
     components: {
-        LanguageSwitcher
+        LanguageSwitcher,
+        FeedbackButton
     }
 }
 </script>
