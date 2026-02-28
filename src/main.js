@@ -13,7 +13,7 @@ app.use(router);
 app.use(VueReCaptcha, {
     siteKey: import.meta.env.VITE_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
     loaderOptions: {
-        autoHideBadge: false,
+        autoHideBadge: true,
         explicitRenderParameters: {
             badge: 'bottomleft'
         }
