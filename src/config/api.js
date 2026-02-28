@@ -3,14 +3,9 @@
 
 // Determine the API base URL based on environment
 const getApiBaseUrl = () => {
-    // Check if running in production (GitHub Pages)
-    if (import.meta.env.PROD) {
-        // Production API URL - update this with your actual production API URL
-        return import.meta.env.VITE_API_BASE_URL || 'https://api.nearcomapp.com';
-    }
-    
-    // Development API URL
-    return import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+    // Always use production API to avoid Chrome's "access other devices on your local network" permission
+    // For local API development, set VITE_API_BASE_URL=http://localhost:3000 in .env.local
+    return import.meta.env.VITE_API_BASE_URL || 'https://api.nearcomapp.com';
 };
 
 export const API_BASE_URL = getApiBaseUrl();
