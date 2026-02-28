@@ -85,7 +85,10 @@
         "errorInvalidCredentials": "Érvénytelen email vagy jelszó. Csak a saját üzenetedhez szólhatsz hozzá.",
         "errorNoAuth": "Ez az üzenet nem rendelkezik hitelesítéssel. Csak adminok írhatnak hozzászólást.",
         "errorAuthRequired": "Hitelesítés szükséges. Add meg az üzeneted hitelesítő adatait.",
-        "contactEmail": "nearcomapp@gmail.com"
+        "contactEmail": "nearcomapp@gmail.com",
+        "statusPending": "Függőben",
+        "statusReviewed": "Áttekintve",
+        "statusResolved": "Megoldva"
     },
     "privacyPolicy": {
         "title": "Adatvédelmi irányelvek",

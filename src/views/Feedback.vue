@@ -197,7 +197,7 @@
                                 {{ $t(`feedback.topic${capitalize(msg.topic)}`) }}
                             </span>
                             <span class="tag" :class="`tag-status-${msg.status}`">
-                                {{ msg.status }}
+                                {{ $t(`feedback.status${capitalize(msg.status)}`) }}
                             </span>
                         </div>
                     </div>

@@ -85,7 +85,10 @@
         "errorInvalidCredentials": "Invalid email or password. You can only comment on your own messages.",
         "errorNoAuth": "This message does not have authentication enabled. Only admins can comment.",
         "errorAuthRequired": "Authentication required. Provide your message credentials.",
-        "contactEmail": "nearcomapp@gmail.com"
+        "contactEmail": "nearcomapp@gmail.com",
+        "statusPending": "Pending",
+        "statusReviewed": "Reviewed",
+        "statusResolved": "Resolved"
     },
     "privacyPolicy": {
         "title": "Privacy Policy",
